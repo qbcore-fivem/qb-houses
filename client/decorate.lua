@@ -15,7 +15,6 @@ local rotateActive = false
 local peanut = false
 local previewObj = nil
 
-
 local function openDecorateUI()
 	SetNuiFocus(true, true)
 	cursorEnabled = true
@@ -423,8 +422,6 @@ CreateThread(function()
 	while true do
 		Wait(7)
 		if DecoMode then
-			
-
 			--DisableAllControlActions(0)
 			EnableControlAction(0, 32, true) -- W
 			EnableControlAction(0, 33, true) -- S
@@ -445,7 +442,6 @@ CreateThread(function()
 			DisplayRadar(false)
 
 			if IsControlJustReleased(0, 166) then -- F5
-			
 				if not cursorEnabled then
 					SetNuiFocus(true, true)
 					cursorEnabled = true
@@ -453,7 +449,6 @@ CreateThread(function()
 					SetNuiFocus(false, false)
 					cursorEnabled = false
 				end
-			
 			end
 
 
@@ -463,7 +458,7 @@ CreateThread(function()
 				SetEntityDrawOutline(SelectedObj, true)
 				SetEntityDrawOutlineColor(255, 150, 150, 200)
 
-				if IsControlPressed(0, 21) then --left shft 
+				if IsControlPressed(0, 21) then --left shft
 					CheckObjRotationInput()
 				else
 					CheckObjMovementInput()
@@ -495,9 +490,6 @@ CreateThread(function()
 					end
 				end
 			end
-			
-
-			
 		end
 	end
 end)
