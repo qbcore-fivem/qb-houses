@@ -1,4 +1,4 @@
-QBCore = exports['qb-core']:GetCoreObject()
+QBCore = exports['qb-core']:GetCoreObject({ 'Functions' })
 IsInside = false
 ClosestHouse = nil
 HasHouseKey = false
@@ -528,7 +528,7 @@ local function SetClosestHouse()
             end, ClosestHouse)
         end
     end
-    
+
     if ClosestHouse and next(Config.Houses[ClosestHouse].garage) == nil then return end
     TriggerEvent('qb-garages:client:setHouseGarage', ClosestHouse, HasHouseKey)
 end
@@ -1079,7 +1079,7 @@ RegisterNetEvent('qb-houses:client:RequestRing', function()
     end
 end)
 
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     TriggerServerEvent('qb-houses:server:setHouses')
     SetClosestHouse()
     TriggerEvent('qb-houses:client:setupHouseBlips')
